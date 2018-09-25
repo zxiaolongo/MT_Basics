@@ -67,7 +67,7 @@ public class BusinessActivity extends FragmentActivity {
         //viewpager设置上数据适配器
 
         MyFragmentPagerAdapter myFragmentPagerAdapter
-                = new MyFragmentPagerAdapter(getSupportFragmentManager());
+                = new MyFragmentPagerAdapter(getSupportFragmentManager(),seller);
         vp.setAdapter(myFragmentPagerAdapter);
         //让tabLayout和viewpager进行绑定
         tabs.setupWithViewPager(vp);

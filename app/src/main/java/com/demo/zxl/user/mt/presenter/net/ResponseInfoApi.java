@@ -26,5 +26,8 @@ public interface ResponseInfoApi {
             @Path("home") String url, @Query("latitude") String lat, @Query("longitude") String lng);
 
 
+
     //其余模块请求方式,请求地址,请求参数各不相同,只需要在此处定义多个方法即可
+    @GET("business")
+    Call<ResponseInfo> getGoodsInfo(@Query("sellerId") long sellerId);
 }
