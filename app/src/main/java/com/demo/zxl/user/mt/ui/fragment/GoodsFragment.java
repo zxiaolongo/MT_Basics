@@ -15,6 +15,7 @@ import com.demo.zxl.user.mt.model.bean.GoodsInfo;
 import com.demo.zxl.user.mt.model.bean.GoodsTypeInfo;
 import com.demo.zxl.user.mt.model.bean.Seller;
 import com.demo.zxl.user.mt.presenter.GoodsPresenter;
+import com.demo.zxl.user.mt.ui.activity.BusinessActivity;
 import com.demo.zxl.user.mt.ui.adapter.GoodsAdapter;
 import com.demo.zxl.user.mt.ui.adapter.GoodsTypeAdapter;
 
@@ -36,8 +37,8 @@ public class GoodsFragment extends BaseFragment {
 
     Unbinder unbinder;
     private Seller seller;
-    private GoodsAdapter goodsAdapter;
-    private GoodsTypeAdapter goodsTypeAdapter;
+    public GoodsAdapter goodsAdapter;//商品数据适配器
+    public GoodsTypeAdapter goodsTypeAdapter;//商品分类数据适配器
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,7 +62,7 @@ public class GoodsFragment extends BaseFragment {
         rvGoodsType.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvGoodsType.setAdapter(goodsTypeAdapter);
 
-        goodsAdapter = new GoodsAdapter();
+        goodsAdapter = new GoodsAdapter((BusinessActivity) getActivity(),this);
         slhlv.setAdapter(goodsAdapter);
 
         GoodsPresenter goodsPresenter = new GoodsPresenter(goodsTypeAdapter, goodsAdapter,seller);

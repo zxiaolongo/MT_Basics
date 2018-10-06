@@ -20,12 +20,19 @@ public class MyApplication extends Application {
     //如果现在有一个用户A ,在登录的状态下退出应用,退出后内存就释放了
     //当再次打开应用的时候,因为没有做登录请求的发送,所以userId的值,就是MyApplication记录的初始值-1
     public static int userId = -1;
-
+    public static int statusBarHeight = 0;
     @Override
     public void onCreate() {
         //做sdk初始化
         SMSSDK.initSDK(this, "27ff233250580", "e5244b961b29bb03d34faef4f1b81600");
         super.onCreate();
+
+        //获取status_bar_height资源的ID
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            //根据资源ID获取响应的尺寸值
+            statusBarHeight = getResources().getDimensionPixelSize(resourceId);
+        }
 
         //9103
         //需要判断目前手机是否有登录用户  token  isLogin 1
