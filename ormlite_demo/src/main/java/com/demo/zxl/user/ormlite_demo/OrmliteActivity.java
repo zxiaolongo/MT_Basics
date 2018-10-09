@@ -146,6 +146,7 @@ public class OrmliteActivity extends Activity {
             OrmLiteDBHelper ormLiteDBHelper = new OrmLiteDBHelper(this);
             Dao<UserInfo,Integer> dao = ormLiteDBHelper.getDao(UserInfo.class);
 
+
             for (int i = 0; i < 10; i++) {
                 UserInfo userInfo = new UserInfo();
                 userInfo.setUsername("aaa"+i);
